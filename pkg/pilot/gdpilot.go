@@ -1,4 +1,4 @@
-package zerogdpilot
+package pilot
 
 import (
 	"bufio"

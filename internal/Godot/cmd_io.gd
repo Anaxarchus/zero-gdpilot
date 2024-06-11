@@ -14,11 +14,13 @@ func _init(read_stdin: bool = false) -> void:
         _stdin_running = true
         _stdin_thread = Thread.new()
         _stdin_thread.start(_read_stdin)
+    write(OK)
 
 func _read_stdin() -> void:
     var stdin: String
     while _stdin_running:
         stdin = OS.read_string_from_stdin()
+        stdin = OS.read_stdin
         if stdin != "":
             _process_stdin.call_deferred(stdin)
 
